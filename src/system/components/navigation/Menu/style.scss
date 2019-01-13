@@ -44,18 +44,20 @@ ul.ds-menu-list {
   text-decoration: none;
   padding: $space-x-small $space-small;
   transition: color $duration-short $ease-out;
-
+  border-left: 2px solid transparent;
+  
   &.router-link-active {
     color: $text-color-link-active;
   }
-
+  
   &:hover {
     color: $text-color-link-active;
   }
-
+  
   &.router-link-exact-active {
-    color: $text-color-link-active;
+    color: $text-color-link;
     background-color: $background-color-soft;
+    border-left: 2px solid $color-primary;
   }
 
   .ds-menu-item-inverse & {
