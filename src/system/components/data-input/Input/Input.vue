@@ -13,7 +13,7 @@
           iconRight && `ds-input-has-icon-right`
         ]"
         :id="id"
-        :name="name"
+        :name="name ? name : model"
         :type="type"
         :autofocus="autofocus"
         :placeholder="placeholder"
@@ -66,23 +66,9 @@ export default {
       default: null
     },
     /**
-     * The name of the field for better accessibility
-     */
-    name: {
-      type: String,
-      default: null
-    },
-    /**
      * Whether the input should be automatically focused
      */
     autofocus: {
-      type: Boolean,
-      default: false
-    },
-    /**
-     * Whether the input should be read-only
-     */
-    readonly: {
       type: Boolean,
       default: false
     },
