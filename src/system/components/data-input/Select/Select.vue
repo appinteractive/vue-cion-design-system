@@ -49,13 +49,13 @@
             ref="search"
             class="ds-select-search"
             :id="id"
+            :name="name || model"
             :autofocus="autofocus"
             :placeholder="placeholder"
             :tabindex="tabindex"
             :disabled="disabled"
-            :readonly="readonly"
             v-model="searchString"
-            @focus="openAndFocus"
+            autocomplete="off"
             @keydown.tab="closeAndBlur"
             @keydown.delete.stop="deselectLastOption"
             @keydown.down.prevent="handleKeyDown"
@@ -84,12 +84,13 @@
           ref="search"
           class="ds-select-search"
           :id="id"
+          :name="name || model"
           :autofocus="autofocus"
           :placeholder="placeholder"
           :tabindex="tabindex"
           :disabled="disabled"
-          :readonly="readonly"
           v-model="searchString"
+          autocomplete="off"
           @focus="openAndFocus"
           @keydown.tab="closeAndBlur"
           @keydown.delete.stop="deselectLastOption"
@@ -172,7 +173,7 @@ export default {
   },
   props: {
     /**
-     * The placeholder shown when value is empty
+     * The placeholder shown when value is empty.
      */
     placeholder: {
       type: String,
@@ -186,14 +187,14 @@ export default {
       default: false
     },
     /**
-     * The name of the input's icon
+     * The name of the input's icon.
      */
     icon: {
       type: String,
       default: null
     },
     /**
-     * The name of the input's right icon
+     * The name of the input's right icon.
      */
     iconRight: {
       type: String,
