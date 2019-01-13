@@ -1,16 +1,22 @@
 <template>
-  <component 
+  <component
     :is="tag"
     class="ds-logo"
     :class="[
       inverse && `ds-logo-inverse`
   ]">
-    <svg-logo class="ds-logo-svg" />
+    <svg-logo
+      v-if="!inverse"
+      class="ds-logo-svg" />
+    <svg-logo-inverse
+      v-else
+      class="ds-logo-svg" />
   </component>
 </template>
 
 <script>
-import svgLogo from '@@/assets/img/logo_cion.svg'
+import svgLogo from '@@/assets/img/Logo-Horizontal.svg'
+import svgLogoInverse from '@@/assets/img/Logo-Horizontal-Dark.svg'
 /**
  * This component displays the brand's logo.
  * @version 1.0.0
@@ -18,7 +24,8 @@ import svgLogo from '@@/assets/img/logo_cion.svg'
 export default {
   name: 'DsLogo',
   components: {
-    svgLogo
+    svgLogo,
+    svgLogoInverse
   },
   props: {
     /**
