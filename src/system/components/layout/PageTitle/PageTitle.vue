@@ -33,6 +33,7 @@ export default {
     },
     /**
      * Whether this title should be highlighted
+     * `true, false`
      */
     highlight: {
       type: Boolean,
