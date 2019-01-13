@@ -49,11 +49,9 @@ ol > .ds-list-item > .ds-list-item-prefix:before, .ds-list-item-icon {
   align-items: center;
   justify-content: center;
   width: $font-space-xxx-large;
-  height: $font-space-xxx-large;
-  font-size: 0.8em;
-  border-radius: $border-radius-circle;
+  height: $font-space-xxx-large + .4em;
+  font-size: 0.6em;
   color: $text-color-soft;
-  background-color: $background-color-softest;
 }
 
 ol > .ds-list-item > .ds-list-item-prefix:before {
