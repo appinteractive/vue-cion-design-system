@@ -1,12 +1,14 @@
 <template>
-  <component 
+  <component
     :is="tag"
     class="ds-text"
     :class="[
       size && `ds-text-size-${size}`,
       color && `ds-text-${color}`,
       bold && `ds-text-bold`,
-      inline && `ds-text-inline`
+      inline && `ds-text-inline`,
+      align && `ds-text-${align}`,
+      uppercase && `ds-text-uppercase`
     ]"
   >
     <slot />
@@ -65,24 +67,41 @@ export default {
     },
     /**
      * The size used for the text.
-     * @options small|base|large|x-large
+     * @options small|base|large|x-large|xx-large|xxx-large
      */
     size: {
       type: String,
       default: null,
       validator: value => {
-        return value.match(/(small|base|large|x-large)/)
+        return value.match(/(small|base|large|x-large|xx-large|xxx-large)/)
       }
     },
     /**
      * The html tag used for the text.
-     * @default p
      */
     tag: {
       type: String,
       default() {
         return this.inline ? 'span' : 'p'
       }
+    },
+    /**
+     * Align Text
+     * `left, center, right
+     */
+    align: {
+      type: String,
+      default: null,
+      validator: value => {
+        return value.match(/(left|center|right)/)
+      }
+    },
+    /**
+     * Text in Uppdercase
+     */
+    uppercase: {
+      type: Boolean,
+      default: false
     }
   }
 }
