@@ -1,12 +1,8 @@
 <template>
-  <component 
+  <component
     :is="tag"
     :style="styles"
-    class="ds-space"
-    :class="[
-      centered && `ds-space-centered`,
-    ]"
-  >
+    class="ds-space">
     <slot />
   </component>
 </template>
@@ -43,30 +39,50 @@ export default {
       default: 'large'
     },
     /**
+     * The bottom and top margin of this space.
+     */
+    margin: {
+      type: [String, Object],
+      default: null
+    },
+
+    /**
+     * Center content vertacally and horizontally
+     */
+    centered: {
+      type: Boolean,
+      default: false
+    },
+    /**
      * The html element name used for this space.
      */
     tag: {
       type: String,
       default: 'div'
-    },
-    /**
-     * Center the content
-     * `true, false`
-     */
-    centered: {
-      type: Boolean,
-      default: false
     }
   },
   computed: {
     styles() {
-      const marginTop = this.mediaQuery(this.marginTop)
-      const marginBottom = this.mediaQuery(this.marginBottom)
+      const top = this.margin ? this.margin : this.marginTop
+      const bottom = this.margin ? this.margin : this.marginBottom
+
+      const marginTop = this.mediaQuery(top)
+      const marginBottom = this.mediaQuery(bottom)
       const marginTopStyle = this.parseMargin('Top')(marginTop)
       const marginBottomStyle = this.parseMargin('Bottom')(marginBottom)
+      const centerStyle = this.center
+        ? {
+            'text-align': 'center',
+            flex: 1,
+            'align-content': 'center',
+            'jusify-content': 'center'
+          }
+        : {}
+
       return {
         ...marginTopStyle,
-        ...marginBottomStyle
+        ...marginBottomStyle,
+        ...centerStyle
       }
     }
   },
