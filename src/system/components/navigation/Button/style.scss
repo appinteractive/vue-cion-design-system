@@ -218,12 +218,10 @@
 }
 
 .ds-button-wrap {
-  transition: opacity 250ms ease-out;
-  transition-delay: 0;
+  transition: opacity 150ms ease-in-out;
   
   .ds-button-loading & {
     opacity: 0.1;
-    transition-delay: 250ms;
   }
 }
 
