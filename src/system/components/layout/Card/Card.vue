@@ -7,7 +7,8 @@
       primary && `ds-card-primary`,
       secondary && `ds-card-secondary`,
       centered && `ds-card-centered`,
-      hover && `ds-card-hover`
+      hover && `ds-card-hover`,
+      space && `ds-card-space-${space}`
   ]">
     <div
       class="ds-card-image"
@@ -38,12 +39,7 @@
       </slot>
     </header>
     <div class="ds-card-content">
-      <template v-if="space">
-        <ds-space :margin="space">
-          <slot />
-        </ds-space>
-      </template>
-      <template v-else>
+      <template>
         <slot />
       </template>
     </div>
@@ -133,11 +129,14 @@ export default {
     },
     /**
      * If you need some spacing you can provide it here like for ds-space
-     * @options xxx-small|xx-small|x-small|small|large|x-large|xx-large|xxx-large
+     * @options small|large|x-large|xx-large
      */
     space: {
       type: String,
-      default: null
+      default: null,
+      validator: value => {
+        return value.match(/(small|large|x-large|xx-large)/)
+      }
     }
   },
   data() {
