@@ -13,8 +13,13 @@
       class="ds-card-image"
       v-if="image || $slots.image">
       <!-- @slot Content of the card's image -->
-      <slot name="image">
-        <img :src="image" >
+      <slot 
+        name="image"
+        :image="image">
+        <img
+          :src="image"
+          v-if="!error"
+          @error="onError" >
       </slot>
     </div>
     <div
@@ -27,13 +32,20 @@
       v-if="header || $slots.header">
       <!-- @slot Content of the card's header -->
       <slot name="header">
-        <ds-heading 
+        <ds-heading
           :tag="headerTag"
           size="h3">{{ header }}</ds-heading>
       </slot>
     </header>
     <div class="ds-card-content">
-      <slot />
+      <template v-if="space">
+        <ds-space :margin="space">
+          <slot />
+        </ds-space>
+      </template>
+      <template v-else>
+        <slot />
+      </template>
     </div>
     <footer
       class="ds-card-footer"
@@ -106,18 +118,36 @@ export default {
       default: false
     },
     /**
-     * Centers the content
+     * Center the content
      */
     centered: {
       type: Boolean,
       default: false
     },
     /**
-     * Makes the card hoverable
+     * Make the card hoverable
      */
     hover: {
       type: Boolean,
       default: false
+    },
+    /**
+     * If you need some spacing you can provide it here like for ds-space
+     * @options xxx-small|xx-small|x-small|small|large|x-large|xx-large|xxx-large
+     */
+    space: {
+      type: String,
+      default: null
+    }
+  },
+  data() {
+    return {
+      error: false
+    }
+  },
+  methods: {
+    onError() {
+      this.error = true
     }
   }
 }
