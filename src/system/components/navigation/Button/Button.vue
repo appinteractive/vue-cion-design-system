@@ -11,7 +11,8 @@
       iconOnly && `ds-button-icon-only`,
       hover && `ds-button-hover`,
       fullWidth && `ds-button-full-width`,
-      loading && `ds-button-loading`
+      loading && `ds-button-loading`,
+      right && `ds-button-right`
     ]"
     :name="name"
     v-bind="bindings"
@@ -26,9 +27,6 @@
         v-if="$slots.default">
         <slot />
       </span>
-      <ds-icon
-        v-if="iconRight"
-        :name="iconRight"/>
     </div>
     <ds-spinner
       v-if="loading" 
@@ -134,11 +132,11 @@ export default {
       default: null
     },
     /**
-     * The name of the buttons right icon.
+     * Put the icon to the right.
      */
-    iconRight: {
-      type: String,
-      default: null
+    right: {
+      type: Boolean,
+      default: false
     },
     /**
      * Should the button spread to the full with of the parent?
@@ -170,7 +168,7 @@ export default {
       return bindings
     },
     iconOnly() {
-      return !this.$slots.default && this.icon && !this.iconRight
+      return !this.$slots.default && this.icon
     }
   },
   methods: {
