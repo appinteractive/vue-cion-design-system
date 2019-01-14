@@ -21,6 +21,23 @@ Set a header and image for the card and provide some content.
 </ds-flex>
 ```
 
+## Space
+
+Need more or less space top and bottom of the card?
+Specify with with the `space` prop
+
+```html
+<ds-card space="xx-small">
+  xx-small  
+</ds-card>
+```
+
+```html
+<ds-card space="xx-large">
+  xx-large  
+</ds-card>
+```
+
 ## Cards with footer
 
 Most commonly the footer will contain some actions connected to the content.
@@ -134,7 +151,7 @@ Use color variants to highlight content.
       centered>
       Look ma! I'm in a card.
       <template slot="footer">
-        <ds-button primary>Read more</ds-button>
+        <ds-button secondary>Read more</ds-button>
       </template>
     </ds-card>
   </ds-flex-item>
@@ -169,8 +186,52 @@ Use a hover card to draw additional attention to the its content.
       hover>
       Look ma! I'm in a card.
       <template slot="footer">
-        <ds-button primary>Read more</ds-button>
+        <ds-button secondary>Read more</ds-button>
       </template>
+    </ds-card>
+  </ds-flex-item>
+</ds-flex>
+```
+
+## Section Footer
+
+Here we apply a section footer without margin
+
+```
+<ds-flex gutter="base" :width="{ base: '100%', sm: 1 }">
+  <ds-flex-item>
+    <ds-card
+      icon="cubes"
+      header="The header"
+      centered
+      hover>
+      Look ma! I'm in a card.
+      <div slot="footer" class="no-margin">
+        <ds-icon name="comments" />
+        <ds-tag
+          style="transform: scale(.8); margin-top: -4px; margin-left: -7px; position: absolute;"
+          color="primary"
+          round>
+          2
+        </ds-tag>
+      </div>
+    </ds-card>
+  </ds-flex-item>
+  <ds-flex-item>
+    <ds-card
+      icon="book"
+      header="The header"
+      centered>
+      Look ma! I'm in a card.
+      <div slot="footer" class="no-margin">
+        <ds-icon name="comments" />
+        <ds-tag
+          style="transform: scale(.8); margin-top: -4px; margin-left: -7px; position: absolute;"
+          color="primary"
+          round>
+          34
+        </ds-tag>
+      </div>
     </ds-card>
   </ds-flex-item>
 </ds-flex>
