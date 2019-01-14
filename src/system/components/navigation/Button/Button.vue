@@ -10,7 +10,7 @@
       ghost && `ds-button-ghost`,
       iconOnly && `ds-button-icon-only`,
       hover && `ds-button-hover`,
-      fullWidth && `ds-button-full-width`,
+      fullwidth && `ds-button-fullwidth`,
       loading && `ds-button-loading`,
       right && `ds-button-right`
     ]"
@@ -141,7 +141,7 @@ export default {
     /**
      * Should the button spread to the full with of the parent?
      */
-    fullWidth: {
+    fullwidth: {
       type: Boolean,
       default: false
     },
