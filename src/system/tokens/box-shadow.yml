@@ -5,8 +5,10 @@
 #
 
 props:
+  - name: box-shadow-x-large
+    value: "0 15px 30px 0 rgba(0,0,0,.11),0 5px 15px 0 rgba(0,0,0,.08)"
   - name: box-shadow-large
-    value: "0 20px 60px 0 rgba(0, 0, 0, .15)"
+    value: "0 10px 20px 0 rgba(0,0,0,.11),0 3px 10px 0 rgba(0,0,0,.08)"
   - name: box-shadow-base
     value: "0px 12px 26px -4px rgba(0, 0, 0, .1)"
   - name: box-shadow-small
