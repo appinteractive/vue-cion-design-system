@@ -14,13 +14,13 @@ aliases:
   neutral:
     value: "264, 10%"
   green:
-    value: "100, 69%"
+    value: "135, 77%"
   orange:
     value: "28, 80%"
   yellow:
     value: "48, 100%"
   blue:
-    value: "200, 100%"
+    value: "203, 100%"
   purple:
     value: "264, 88%"
   pink:
@@ -28,7 +28,7 @@ aliases:
   teal:
     value: "174, 80%"
   red:
-    value: "3, 65%"
+    value: "7, 72%"
 
 props:
   #
@@ -67,18 +67,18 @@ props:
     value: &color-neutral-100 "hsla({!neutral}, 100%, 1)"
 
   - name: color-primary
-    value: &color-primary "hsla({!teal}, 40%, 1)"
+    value: &color-primary "hsla({!green}, 40%, 1)"
   - name: color-primary-active
-    value: &color-primary-active "hsla({!teal}, 43%, 1)"
+    value: &color-primary-active "hsla({!green}, 43%, 1)"
   - name: color-primary-inverse
-    value: &color-primary-inverse "hsla({!teal}, 97%, 1)"
+    value: &color-primary-inverse "hsla({!green}, 97%, 1)"
 
   - name: color-secondary
-    value: &color-secondary "hsla({!purple}, 45%, 1)"
+    value: &color-secondary "hsla({!blue}, 45%, 1)"
   - name: color-secondary-active
-    value: &color-secondary-active "hsla({!purple}, 52%, 1)"
+    value: &color-secondary-active "hsla({!blue}, 52%, 1)"
   - name: color-secondary-inverse
-    value: &color-secondary-inverse "hsla({!purple}, 97%, 1)"
+    value: &color-secondary-inverse "hsla({!blue}, 97%, 1)"
 
   - name: color-success
     value: &color-success "hsla({!green}, 40%, 1)"
