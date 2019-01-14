@@ -5,7 +5,11 @@
     <table
       cellpadding="0"
       cellspacing="0"
-      class="ds-table">
+      class="ds-table"
+      :class="[
+        condensed && 'ds-table-condensed',
+        bordered && 'ds-table-bordered'
+    ]">
       <colgroup>
         <col
           v-for="header in headers"
@@ -16,7 +20,8 @@
         <tr>
           <ds-table-head-col
             v-for="header in headers"
-            :key="header.key">
+            :key="header.key"
+            :align="align(header.key)">
             {{ header.label }}
           </ds-table-head-col>
         </tr>
@@ -24,10 +29,11 @@
       <tbody>
         <tr
           v-for="(row, index) in rows"
-          :key="index">
+          :key="row.key || index">
           <ds-table-col
             v-for="col in row"
-            :key="col.key">
+            :key="col.key"
+            :align="align(col.key)">
             <!-- @slot Slots are named by fields -->
             <slot
               :name="col.key"
@@ -75,6 +81,20 @@ export default {
       default() {
         return null
       }
+    },
+    /**
+     * Should the table be more condense?
+     */
+    condensed: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * Should the table have borders?
+     */
+    bordered: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
@@ -134,6 +154,11 @@ export default {
     }
   },
   methods: {
+    align(colKey) {
+      return this.fields && this.fields[colKey]
+        ? this.fields[colKey].align
+        : null
+    },
     parseLabel(label) {
       return startCase(label)
     }
